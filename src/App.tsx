@@ -1,8 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Product } from "./components/Product";
+import { products } from "./data/products";
 
 function App() {
   return (
-    <h1>Mariia Posselt</h1>
+    <div className="container mx-auto max-w-2xl pt-5">
+      <div className="text-2xl font-bold">Products</div>
+      {products.map(p => <Product product={p} key={p.id} /> )}      
+    </div>
   );
 }
 
