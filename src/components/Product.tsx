@@ -8,6 +8,10 @@ interface ProductProps {
 export function Product ({product}: ProductProps) {
 
     const[details, setDetails] = useState(false);
+
+    const btnBgClassName = details ? "bg-blue-400" : "bg-yellow-400";
+    const btnClassName = `py-2 px-4 border ${btnBgClassName}`;
+
     
     return (
         <div className='border py-2 px-4 rounded flex-col items-center mb-2'>
@@ -15,7 +19,8 @@ export function Product ({product}: ProductProps) {
             <p>{product.title}</p>
             <p className='font-bold'>${product.price}</p>            
             {details && <p>{product.description}</p>}    
-            <button className='py-2 px-4 border bg-blue-400' onClick={() => setDetails(!details)}>{details? "Hide details" : "Show details"}</button>        
+            <button className={btnClassName} onClick={() => setDetails(!details)}>{details? "Hide details" : "Show details"}</button>  
+            <p>Rate: <span style={{fontWeight: "bold"}}>{product.rating.rate}</span></p>      
         </div>
     )
 }
