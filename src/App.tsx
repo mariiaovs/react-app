@@ -2,6 +2,10 @@ import React from "react";
 import { Product } from "./components/Product";
 // import { products } from "./data/products";
 import useProducts from "./hooks/products";
+import { Loader } from "./components/Loader";
+import { ErrorMessage } from "./components/ErrorMessage";
+import { CreateProduct } from "./components/CreateProduct";
+import { Modal } from "./components/Modal";
 
 function App() {
   
@@ -10,11 +14,14 @@ function App() {
   return (
     <div className="container mx-auto max-w-2xl pt-5">
       <div className="text-2xl text-center font-bold">Products</div>
-      {loading && <div className="text-center">Loading...</div>}
-      {error && <div className="text-center text-red-600">{error}</div>}
+      {loading && <Loader />}
+      {error && <ErrorMessage errorMessage={error} />}
       {products.map((product) => (
         <Product product={product} key={product.id} />
       ))}
+      <Modal title="Create new product">
+        <CreateProduct />
+      </Modal>
     </div>
   );
 }
