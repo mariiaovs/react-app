@@ -10,7 +10,7 @@ export function Product ({product}: ProductProps) {
     const[details, setDetails] = useState(false);
 
     const btnBgClassName = details ? "bg-blue-400" : "bg-yellow-400";
-    const btnClassName = `py-2 px-4 border ${btnBgClassName}`;
+    const btnClassName = `py-2 px-4 border hover:opacity-50 ${btnBgClassName}`;
 
     
     return (
@@ -20,8 +20,10 @@ export function Product ({product}: ProductProps) {
             <p className='font-bold'>${product.price}</p>            
             {details && <p>{product.description}</p>}    
             <button className={btnClassName} onClick={() => setDetails(!details)}>{details? "Hide details" : "Show details"}</button>  
-            <p>Rate: <span style={{fontWeight: "bold"}}>{product.rating.rate}</span></p>      
+            <p>Rate: <span style={{fontWeight: "bold"}}>{product?.rating?.rate}</span></p>
         </div>
     )
 }
+
+
 
