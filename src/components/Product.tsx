@@ -17,7 +17,9 @@ export function Product({ product }: ProductProps) {
       <Link to="/product">
         <img src={product.image} className="w-1/6" alt={product.title} />
       </Link>
-      <p>{product.title}</p>
+      <Link to="/product">
+        <p>{product.title}</p>
+      </Link>
       <p className="font-bold">${product.price}</p>
       {details && <p>{product.description}</p>}
       <button className={btnClassName} onClick={() => setDetails(!details)}>

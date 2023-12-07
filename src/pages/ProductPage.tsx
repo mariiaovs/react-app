@@ -1,21 +1,23 @@
 import React from "react";
-import useProducts from "../hooks/products";
+import useProduct from "../hooks/product";
 
 function ProductPage() {
-  const { products, loading, error } = useProducts();
+  //const { product, loading, error } = useProduct();
+  const { product } = useProduct();
 
-  debugger;
+  console.log(product);
 
   return (
     <div className="border py-2 px-4 rounded flex-col items-center mb-2">
-      <img src={products[0].image} className="w-1/6" alt={products[0].title} />
-      <p>{products[0].title}</p>
-      <p className="font-bold">${products[0].price}</p>
-      <p>{products[0].description}</p>
+      <h1>Product</h1>
+      {/* <img src={product.image} className="w-1/6" alt={product.title} />
+      <p>{product.title}</p>
+      <p className="font-bold">${product.price}</p>
+      <p>{product.description}</p>
       <p>
         Rate:{" "}
-        <span style={{ fontWeight: "bold" }}>{products[0]?.rating?.rate}</span>
-      </p>
+        <span style={{ fontWeight: "bold" }}>{product?.rating?.rate}</span>
+      </p> */}
     </div>
   );
 }
