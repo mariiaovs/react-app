@@ -10,6 +10,7 @@ function App() {
     <>
       <Navigation />
       <Routes>
+        {/* <Route path="/" element={<Start />} /> */}
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/product" element={<ProductPage />} />

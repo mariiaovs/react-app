@@ -10,6 +10,7 @@ function ProductPage() {
   return (
     <div className="border py-2 px-4 rounded flex-col items-center mb-2">
       <h1>Product</h1>
+      {/* <p>{product.title}</p> */}
       {/* <img src={product.image} className="w-1/6" alt={product.title} />
       <p>{product.title}</p>
       <p className="font-bold">${product.price}</p>
