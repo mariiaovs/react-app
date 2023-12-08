@@ -16,8 +16,6 @@ export function Product({ product }: ProductProps) {
     <div className="border py-2 px-4 rounded flex-col items-center mb-2">
       <Link to="/product">
         <img src={product.image} className="w-1/6" alt={product.title} />
-      </Link>
-      <Link to="/product">
         <p>{product.title}</p>
       </Link>
       <p className="font-bold">${product.price}</p>
