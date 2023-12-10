@@ -1,24 +1,17 @@
 import React from "react";
 import useProduct from "../hooks/product";
+import { Loader } from "../components/Loader";
+import { ErrorMessage } from "../components/ErrorMessage";
+import ProductFull from "../components/ProductFull";
 
 function ProductPage() {
-  //const { product, loading, error } = useProduct();
-  const { product } = useProduct();
-
-  console.log(product);
-
+  const { product, loading, error } = useProduct();  
+  
   return (
     <div className="border py-2 px-4 rounded flex-col items-center mb-2">
-      <h1>Product</h1>
-      {/* <p>{product.title}</p> */}
-      {/* <img src={product.image} className="w-1/6" alt={product.title} />
-      <p>{product.title}</p>
-      <p className="font-bold">${product.price}</p>
-      <p>{product.description}</p>
-      <p>
-        Rate:{" "}
-        <span style={{ fontWeight: "bold" }}>{product?.rating?.rate}</span>
-      </p> */}
+      {loading && <Loader />}
+      {error && <ErrorMessage errorMessage={error} />}
+      {product && <ProductFull product={product} />}         
     </div>
   );
 }
