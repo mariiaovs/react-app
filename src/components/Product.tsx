@@ -14,10 +14,10 @@ export function Product({ product }: ProductProps) {
 
   return (
     <div className="border py-2 px-4 rounded flex-col items-center mb-2">
-      <Link to="/product">
+      <Link to={`/products/${product.id}`}>
         <img src={product.image} className="w-1/6" alt={product.title} />
       </Link>
-      <Link to="/product">
+      <Link to={`/products/${product.id}`}>
         <p>{product.title}</p>
       </Link>
       <p className="font-bold">${product.price}</p>
