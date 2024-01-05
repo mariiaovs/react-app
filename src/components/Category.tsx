@@ -8,7 +8,7 @@ interface CategoryProps {
 
 export function Category({ category }: CategoryProps) {
   return (
-    <div className="border py-2 px-4 rounded flex-col items-center mb-2">
+    <div className="border-2 py-10 px-10 rounded items-center mb-2">
       {/* <Link to={`/products/${product.id}`}>
         <img src={product.image} className="w-1/6" alt={product.title} />
       </Link> */}
