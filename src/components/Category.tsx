@@ -12,8 +12,7 @@ export function Category({ category }: CategoryProps) {
       {/* <Link to={`/products/${product.id}`}>
         <img src={product.image} className="w-1/6" alt={product.title} />
       </Link> */}
-
-      <h2 className="font-bold">${category}</h2>
+      <h2 className="font-bold">{category}</h2>
     </div>
   );
 }
