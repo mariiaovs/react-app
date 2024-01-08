@@ -7,6 +7,15 @@ import { Category } from "../components/Category";
 function StartPage() {
   const { categories, loading, error } = useCategories();
 
+  let categoriesBig: string[] = [];
+
+  for (let i = 0; i < categories.length; i++) {
+    let categoryArr: string[] = categories[i].split("");
+    categoryArr[0] = categoryArr[0].toUpperCase();
+    let categoryBig: string = categoryArr.join("");
+    categoriesBig.push(categoryBig);
+  }
+
   return (
     <div>
       <h1 className="text-5xl text-center font-bold mx-20 my-20">
@@ -15,8 +24,8 @@ function StartPage() {
       <div className="flex gap-5 justify-center">
         {loading && <Loader />}
         {error && <ErrorMessage errorMessage={error} />}
-        {categories.map((category, index) => (
-          <Category category={category} key={index} />
+        {categoriesBig.map((categoryBig, index) => (
+          <Category category={categoryBig} key={index} />
         ))}
       </div>
     </div>
