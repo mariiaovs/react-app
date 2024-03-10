@@ -10,13 +10,15 @@ import { IProduct } from "../models";
 
 function ProductsPage() {
   const { products, loading, error, addProduct } = useProducts();
-  
-  const {modal, open, close} = useContext(ModalContext);
+
+  const { modal, open, close } = useContext(ModalContext);
 
   const createHandler = (product: IProduct) => {
     close();
     addProduct(product);
   };
+
+  console.log(products);
 
   return (
     <div className="container mx-auto max-w-2xl pt-5">

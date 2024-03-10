@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import Navigation from "./components/Navigation";
 import ProductPage from "./pages/ProductPage";
 import StartPage from "./pages/StartPage";
+import ProductsInCategoryPage from "./pages/ProductsInCategoryPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
+        <Route path="/:category" element={<ProductsInCategoryPage />} />
       </Routes>
     </>
   );

@@ -9,6 +9,8 @@ export default function useProduct() {
   const [error, setError] = useState("");
   const { id } = useParams();
 
+  console.log(useParams());
+
   async function fetchProduct() {
     try {
       setError("");

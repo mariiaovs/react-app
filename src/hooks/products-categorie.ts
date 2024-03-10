@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { IProduct } from "../models";
+import { useParams } from "react-router-dom";
 
-export default function useProducts() {
+export default function useProductInCategorie() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  function addProduct(product: IProduct) {
-    setProducts((prev) => [...prev, product]);
-  }
+  const { category } = useParams();
 
-  async function fetchProducts() {
+  console.log(useParams());
+
+  async function fetchProductsInCategory() {
     try {
       setError("");
       setLoading(true);
       const response = await axios.get<IProduct[]>(
-        "https://fakestoreapi.com/products"
+        `https://fakestoreapi.com/products/category/${category}`
       );
       setProducts(response.data);
       setLoading(false);
@@ -28,8 +29,10 @@ export default function useProducts() {
   }
 
   useEffect(() => {
-    fetchProducts();
+    fetchProductsInCategory();
   }, []);
 
-  return { products, loading, error, addProduct };
+  console.log(category, products);
+
+  return { category, products, loading, error };
 }

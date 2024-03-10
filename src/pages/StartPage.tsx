@@ -3,6 +3,7 @@ import useCategories from "../hooks/categories";
 import { Loader } from "../components/Loader";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Category } from "../components/Category";
+import { Link } from "react-router-dom";
 
 function StartPage() {
   const { categories, loading, error } = useCategories();
@@ -25,7 +26,11 @@ function StartPage() {
         {loading && <Loader />}
         {error && <ErrorMessage errorMessage={error} />}
         {categoriesBig.map((categoryBig, index) => (
-          <Category category={categoryBig} key={index} />
+          <div>
+            <Link to={`/${categories[index]}`}>
+              <Category category={categoryBig} key={index} />
+            </Link>
+          </div>
         ))}
       </div>
     </div>
