@@ -41,6 +41,17 @@ function Navigation() {
         >
           About
         </Link>
+        <Link
+          to="/login"
+          onClick={() => setActiveLink("login")}
+          className={
+            activeLink === "login"
+              ? "border-b-4 border-white mr-2 px-3 py-1"
+              : "mr-2 px-3 py-1"
+          }
+        >
+          Login
+        </Link>
       </span>
     </nav>
   );

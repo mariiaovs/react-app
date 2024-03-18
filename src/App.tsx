@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import ProductPage from "./pages/ProductPage";
 import StartPage from "./pages/StartPage";
 import ProductsInCategoryPage from "./pages/ProductsInCategoryPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/:category" element={<ProductsInCategoryPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
