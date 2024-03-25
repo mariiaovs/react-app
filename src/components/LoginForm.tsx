@@ -3,10 +3,41 @@ import axios from "axios";
 import { ErrorMessage } from "./ErrorMessage";
 
 export function LoginForm() {
-  const [value, setValue] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string>("");
 
-  const submitHandler = async (event: React.FormEvent) => {
+  const handleLogin = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      const data = await response.json();
+      // Assuming the API returns a token upon successful login
+      const token = data.token;
+      // Store the token in localStorage or sessionStorage
+      localStorage.setItem("token", token);
+
+      // Redirect or do something else upon successful login
+    } catch (error) {
+      const errorMessage =
+        typeof error === "string" ? error : "An unknown error occurred";
+      setError(errorMessage);
+    }
+  };
+
+  /* const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
 
@@ -20,30 +51,26 @@ export function LoginForm() {
       "https://fakestoreapi.com/products",
       productData
     );
-    onCreate(response.data); */
-  };
-
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
+    onCreate(response.data); 
+  };*/
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={handleLogin}>
       <label htmlFor="username">Username</label>
       <input
         type="text"
         className="border py-2 px-4 mb-2 w-full outline-none"
         placeholder="Enter your username"
-        value={value}
-        onChange={changeHandler}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <label htmlFor="password">Password</label>
       <input
         type="text"
         className="border py-2 px-4 mb-2 w-full outline-none"
         placeholder="Enter your password"
-        value={value}
-        onChange={changeHandler}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       {error && <ErrorMessage errorMessage={error} />}
       <button
