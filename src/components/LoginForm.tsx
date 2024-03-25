@@ -29,10 +29,19 @@ export function LoginForm() {
 
   return (
     <form onSubmit={submitHandler}>
+      <label htmlFor="username">Username</label>
       <input
         type="text"
         className="border py-2 px-4 mb-2 w-full outline-none"
-        placeholder="Enter product title"
+        placeholder="Enter your username"
+        value={value}
+        onChange={changeHandler}
+      />
+      <label htmlFor="password">Password</label>
+      <input
+        type="text"
+        className="border py-2 px-4 mb-2 w-full outline-none"
+        placeholder="Enter your password"
         value={value}
         onChange={changeHandler}
       />
@@ -41,7 +50,7 @@ export function LoginForm() {
         type="submit"
         className="py-2 px-4 border bg-yellow-400 hover:opacity-50"
       >
-        Create
+        Log in
       </button>
     </form>
   );

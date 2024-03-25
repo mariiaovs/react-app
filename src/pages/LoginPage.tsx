@@ -1,5 +1,6 @@
 import { Loader } from "../components/Loader";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { LoginForm } from "../components/LoginForm";
 
 function LoginPage() {
   //const { product, loading, error } = useProduct();
@@ -9,6 +10,7 @@ function LoginPage() {
       {/* {loading && <Loader />}
       {error && <ErrorMessage errorMessage={error} />}
       {product && <ProductFull product={product} />} */}
+      <LoginForm />
     </div>
   );
 }
