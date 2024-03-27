@@ -7,10 +7,12 @@ import ProductPage from "./pages/ProductPage";
 import StartPage from "./pages/StartPage";
 import ProductsInCategoryPage from "./pages/ProductsInCategoryPage";
 import LoginPage from "./pages/LoginPage";
+import { AuthProvider } from "./context/AuthContext";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Navigation />
       <Routes>
         <Route path="/" element={<StartPage />} />
@@ -19,8 +21,9 @@ function App() {
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/:category" element={<ProductsInCategoryPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 
