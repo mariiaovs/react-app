@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { ErrorMessage } from "./ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -24,35 +25,18 @@ export function LoginForm() {
       }
 
       const data = await response.json();
-      // Assuming the API returns a token upon successful login
+
       const token = data.token;
-      // Store the token in localStorage or sessionStorage
+
       localStorage.setItem("token", token);
 
-      // Redirect or do something else upon successful login
+      navigate("/");
     } catch (error) {
       const errorMessage =
         typeof error === "string" ? error : "An unknown error occurred";
       setError(errorMessage);
     }
   };
-
-  /* const submitHandler = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setError("");
-
-    if (value.trim().length === 0) {
-      setError("Please enter valid title");
-      return;
-    }
-    /* 
-    productData.title = value;
-    const response = await axios.post<IProduct>(
-      "https://fakestoreapi.com/products",
-      productData
-    );
-    onCreate(response.data); 
-  };*/
 
   return (
     <form onSubmit={handleLogin}>
