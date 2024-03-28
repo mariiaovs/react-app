@@ -15,7 +15,7 @@ function ProductsInCategoryPage() {
   return (
     <div className="container mx-auto max-w-2xl pt-5">
       <div className="text-2xl text-center font-bold">
-        Products in ${category}
+        Products in {category}
       </div>
       {loading && <Loader />}
       {error && <ErrorMessage errorMessage={error} />}

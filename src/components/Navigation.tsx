@@ -7,7 +7,7 @@ function Navigation() {
   const { isLoggedIn, login, logout } = useAuth();
 
   return (
-    <nav className="h-[50px] flex justify-between px-5 bg-blue-400 font-white items-center">
+    <nav className="h-[50px] flex justify-between px-5 bg-blue-400 font-white items-center fixed w-full top-0 left-0 mb-180">
       <span className="font-bold">Online-Shop</span>
       <span>
         <Link
@@ -43,7 +43,7 @@ function Navigation() {
         >
           About
         </Link>
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <Link
             to="/login"
             onClick={() => setActiveLink("login")}
