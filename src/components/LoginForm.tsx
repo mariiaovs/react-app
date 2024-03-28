@@ -43,30 +43,36 @@ export function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        className="border py-2 px-4 mb-2 w-full outline-none"
-        placeholder="Enter your username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        type="text"
-        className="border py-2 px-4 mb-2 w-full outline-none"
-        placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <ErrorMessage errorMessage={error} />}
-      <button
-        type="submit"
-        className="py-2 px-4 border bg-yellow-400 hover:opacity-50"
+    <div className="flex justify-center">
+      <form
+        onSubmit={handleLogin}
+        className="p-4 rounded-lg shadow-lg item-center"
+        style={{ width: "400px" }}
       >
-        Log in
-      </button>
-    </form>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          className="border py-2 px-4 mb-2 w-full outline-none"
+          placeholder="Enter your username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="text"
+          className="border py-2 px-4 mb-2 w-full outline-none"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <ErrorMessage errorMessage={error} />}
+        <button
+          type="submit"
+          className="py-2 px-4 border bg-yellow-400 hover:opacity-50"
+        >
+          Log in
+        </button>
+      </form>
+    </div>
   );
 }
