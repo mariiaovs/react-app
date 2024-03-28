@@ -35,7 +35,7 @@ function ProductsPage() {
         <Product product={product} key={product.id} />
       ))}
       {modal && (
-        <Modal title="Create new product" onClose={() => close}>
+        <Modal title="Create new product" onClose={close}>
           <CreateProduct onCreate={createHandler} />
         </Modal>
       )}
