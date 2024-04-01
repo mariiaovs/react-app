@@ -21,7 +21,7 @@ function ProductsPage() {
   console.log(products);
 
   return (
-    <div className="container mx-auto max-w-2xl pt-5">
+    <div className="container mx-auto max-w-2xl pt-5 mt-16">
       <button
         className="fixed top-5 left-5 bg-yellow-400 py-2 px-4 mb-10 mt-10 border hover:opacity-50"
         onClick={open}

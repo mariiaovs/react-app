@@ -13,7 +13,7 @@ function ProductsInCategoryPage() {
   const { category, products, loading, error } = useProductInCategorie();
 
   return (
-    <div className="container mx-auto max-w-2xl pt-5">
+    <div className="container mx-auto max-w-2xl pt-5 mt-16">
       <div className="text-2xl text-center font-bold">
         Products in {category}
       </div>

@@ -7,7 +7,7 @@ function Navigation() {
   const { isLoggedIn, login, logout } = useAuth();
 
   return (
-    <nav className="h-[50px] flex justify-between px-5 bg-blue-400 font-white items-center fixed w-full top-0 left-0 mb-180">
+    <nav className="h-[50px] flex justify-between px-5 bg-blue-400 font-white items-center fixed w-full top-0 left-0">
       <span className="font-bold">Online-Shop</span>
       <span>
         <Link

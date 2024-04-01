@@ -5,13 +5,13 @@ import { ErrorMessage } from "../components/ErrorMessage";
 import ProductFull from "../components/ProductFull";
 
 function ProductPage() {
-  const { product, loading, error } = useProduct();  
-  
+  const { product, loading, error } = useProduct();
+
   return (
-    <div className="border py-2 px-4 rounded flex-col items-center mb-2">
+    <div className="border py-2 px-4 rounded flex-col items-center mb-2 mt-16">
       {loading && <Loader />}
       {error && <ErrorMessage errorMessage={error} />}
-      {product && <ProductFull product={product} />}         
+      {product && <ProductFull product={product} />}
     </div>
   );
 }

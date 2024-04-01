@@ -5,7 +5,9 @@ import { LoginForm } from "../components/LoginForm";
 
 function ProfilePage() {
   const { isLoggedIn } = useAuth();
-  return <div>{isLoggedIn ? <Profile /> : <LoginForm />}</div>;
+  return (
+    <div className="mt-16">{isLoggedIn ? <Profile /> : <LoginForm />}</div>
+  );
 }
 
 export default ProfilePage;

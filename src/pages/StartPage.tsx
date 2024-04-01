@@ -18,7 +18,7 @@ function StartPage() {
   }
 
   return (
-    <div>
+    <div className="mt-16">
       <h1 className="text-5xl text-center font-bold mx-20 my-20">
         Welcome to our shop!
       </h1>
